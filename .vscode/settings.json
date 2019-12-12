@@ -1,0 +1,19 @@
+{   
+	    "background.enabled": true,
+	    "background.customImages":[
+	        "file:///C:/background/background.jpg",
+	    ],
+	    "background.style": {
+	        "content": "''",
+	        "position": "absolute",
+	        "z-index": "99999",
+	        "width": "100%",
+	        "height": "100%",
+	        "background-position": "conter",
+	        "background-repeat": "no-repeat",
+	        "background-size": "cover",
+	        "opacity": 0.35
+	},
+	    "background.useDefault": false
+	}
+	

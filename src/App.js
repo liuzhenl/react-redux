@@ -8,7 +8,8 @@ import AuthorizedRoute from './AuthorizedRoute';
 //redux相关
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducer from './reducer'
+import reducer from './redux/reducer';
+
 const store = createStore(reducer);
 
 const App = () => {

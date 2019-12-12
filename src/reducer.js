@@ -63,6 +63,7 @@ import { changeLogged, changeUserName} from './reducers.js';
 // 		return Object.assign({},{num})
 // 	}
 // }
+// 初始化state
 const defaultState = {
 	userlayout:{
 		logged:false,

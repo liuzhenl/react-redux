@@ -73,9 +73,9 @@ class UserLayout extends Component {
 }
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(UserLayout);
 
-function mapStateToProps({userlayout}) {
+function mapStateToProps({login}) {
 	return {
-		logged:userlayout.logged
+		logged:login.logged
 	}
 }
 function mapDispatchToProps(dispatch) {
