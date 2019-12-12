@@ -1,3 +1,4 @@
+//！！！！！！！！！！！！！！！！！！！已经废弃了！！！！！！！！！！！！！！！！
 // 自定义拆分reducer
 // logged状态
 const changeLogged = (logged, { type, payload }) => {

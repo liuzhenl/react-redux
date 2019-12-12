@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { BrowserRouter, Switch ,Route } from "react-router-dom";
+import { BrowserRouter, Switch ,Route,Redirect } from "react-router-dom";
 import BaseLayout from './layout/BaseLayout';
 import UserLayout from './layout/UserLayout';
 import AuthorizedRoute from './AuthorizedRoute';
@@ -17,8 +17,9 @@ const App = () => {
 			<Provider store={store}>
 				<BrowserRouter>
 					<Switch>
-						<Route path='/login' component={UserLayout} />
-						<AuthorizedRoute path='/' component={BaseLayout}/>
+						<Route path='/user/login' component={UserLayout} />
+						<AuthorizedRoute path='/user' component={BaseLayout}/>
+						<Redirect to="/user/login" />
 					</Switch>
 				</BrowserRouter>
 			</Provider>

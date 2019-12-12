@@ -24,7 +24,7 @@ class UserLayout extends Component {
 			//请求成功改变登陆状态
 			loginClick();
 			//跳转首页
-			history.replace("/");
+			history.replace("/user/home");
 		  }
 		});
 	  };
