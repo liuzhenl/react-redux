@@ -1,4 +1,8 @@
-export function RouteWithSubRoutes(route) {
+import React from 'react';
+import { Route } from "react-router-dom";
+
+const RouteWithSubRoutes = (route) => {
+	console.log(route,'subroutes')
 	return (
 	  <Route
 		path={route.path}
@@ -9,3 +13,5 @@ export function RouteWithSubRoutes(route) {
 	  />
 	);
   }
+
+  export default RouteWithSubRoutes;
