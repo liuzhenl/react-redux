@@ -1,33 +1,50 @@
-import React , { Component } from 'react';
-import { connect } from 'react-redux';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import React , { Component } from 'react'
+import { withRouter } from "react-router-dom"
+import { connect } from 'react-redux'
+import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import './userlayout.less'
 
 class UserLayout extends Component {
-	componentDidMount(){
-		console.log(this.props,'propsLogin')
-	};
+	constructor(props){
+		super(props)
+		console.log('生命周期constructor-----------')
+	}
+	componentWillMount() {
+		console.log('生命周期componentWillMount---------')
+	}
+	componentDidMount() {
+		console.log('生命周期comonentDidmount---------')
+	}
+	componentWillUnmount() {
+		console.log('生命周期componentWillUnmount---------')
+	}
 	// handelClick= () => {
 	// 	const { loginClick,history } = this.props;
 	// 	loginClick();
 	// 	history.replace("/");
 	// };
 	handleSubmit = e => {
-		e.preventDefault();
-		const { loginClick, history } = this.props;
+		e.preventDefault()
+		console.log(this.props, 'submit 中的函数')
+		const { loginClick, history } = this.props
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 			//表单验证成功
-			console.log('validOk', values);
+			console.log('validOk', values)
 			//发送ajax请求
 			// code...
 			//请求成功改变登陆状态
 			loginClick();
 			//跳转首页
-			history.replace("/user/home");
+			try {
+				history.replace("/user/home")
+				// this.props.history.push('/user/home')
+			} catch (error) {
+				alert(error+'异常捕获了')
+			}
 		  }
-		});
-	  };
+		})
+	}
 	render(){
 		const { getFieldDecorator } = this.props.form;
 		return (
@@ -59,7 +76,7 @@ class UserLayout extends Component {
 						valuePropName: 'checked',
 						initialValue: true,
 					})(<Checkbox>记住密码</Checkbox>)}
-					<a className="loginformforgot" href="">
+					<a className="loginformforgot" href="javascrip:;">
 						忘记密码
 					</a>
 					<Button type="primary" htmlType="submit" className="loginformbutton">
@@ -80,10 +97,13 @@ function mapStateToProps({login}) {
 }
 function mapDispatchToProps(dispatch) {
 	return {
-	  loginClick: () => dispatch({ type: 'CHANGE_LOGGED' ,payload:true})
+	  loginClick: () => {
+		console.log('执行登录函数')
+		dispatch({ type: 'CHANGE_LOGGED' ,payload:true})
+	  }
 	}
 }
-export default connect(
+export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(WrappedNormalLoginForm)
+)(WrappedNormalLoginForm))

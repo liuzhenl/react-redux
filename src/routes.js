@@ -1,6 +1,7 @@
 import React from 'react';
-import UserLayout from './layout/UserLayout';
-import BaseLayout from './layout/BaseLayout';
+import UserLayout from './layout/UserLayout'
+import BaseLayout from './layout/BaseLayout'
+import Book from './pages/Book'
 const HomePage = () => <div>Home页面</div>
 const AboutPage = () => <div>About页面</div>
 
@@ -25,6 +26,11 @@ const routes= [
 				name:'about',
 				component: AboutPage
 			},
+			{
+				path: "/user/book",
+				name:'book',
+				component: Book
+			}
 		]
 	}
 ]
